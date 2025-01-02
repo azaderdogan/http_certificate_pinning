@@ -51,7 +51,7 @@ class CertificatePinningInterceptor extends Interceptor {
         return super.onRequest(options, handler);
       } else {
         handler.reject(
-          DioException(
+          DioError(
             requestOptions: options,
             error: CertificateNotVerifiedException(),
           ),
@@ -68,7 +68,7 @@ class CertificatePinningInterceptor extends Interceptor {
       }
 
       handler.reject(
-        DioException(
+        DioError(
           requestOptions: options,
           error: error,
         ),
